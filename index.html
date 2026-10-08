@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smahee - The Designer Studio | Bespoke Bridal & Couture Indore</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#E6C875',
+                            400: '#DFB847',
+                            500: '#D4AF37', // Champagne Royal Gold
+                            600: '#B89020',
+                        },
+                        burgundy: {
+                            800: '#5B132B',
+                            900: '#3D0A1B', // Deep Wine Burgundy
+                            950: '#23040F',
+                        },
+                        ivory: '#FFFDF9',
+                        cream: '#F7F3EB',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFDF9;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+        }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFE89C 0%, #D4AF37 50%, #9B7512 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Fast modal fade transitions */
+        .modal {
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Masonry Layout */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Webkit scrollbar tuning */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #23040F; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-burgundy-950">
+
+    <!-- Website Sales Pitch Banner for Studio Owner -->
+    <div id="pitchBanner" class="bg-gradient-to-r from-burgundy-950 via-burgundy-900 to-black text-white text-xs py-2 px-4 border-b border-gold-500/40 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="bg-gold-500 text-burgundy-950 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Live Proposal</span>
+                <p class="font-medium">Exclusive Web Proposal for <span class="text-gold-400 font-semibold">'Smahee - The Designer Studio'</span></p>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/919399104020?text=Hi%20Smahee%20Studio,%20I%20have%20created%20this%20exclusive%20website%20proposal%20for%20your%20boutique!" target="_blank" class="bg-gold-500 hover:bg-gold-400 text-burgundy-950 px-3 py-1 rounded font-bold transition text-xs flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Present to Owner
+                </a>
+                <button onclick="document.getElementById('pitchBanner').remove()" class="text-gray-400 hover:text-white px-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="bg-burgundy-950/95 backdrop-blur-md border-b border-gold-500/30 text-white sticky top-[33px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3">
+                    <div class="w-11 h-11 rounded-full border-2 border-gold-500 flex items-center justify-center bg-burgundy-900 gold-border-glow">
+                        <span class="font-cinzel text-xl font-bold gold-gradient-text">S</span>
+                    </div>
+                    <div>
+                        <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider gold-gradient-text block">SMAHEE</span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-gold-300 uppercase block -mt-1">The Designer Studio</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-semibold tracking-wider uppercase">
+                    <a href="#home" class="text-gold-300 hover:text-gold-400 transition">Home</a>
+                    <a href="#lookbook" class="text-gray-200 hover:text-gold-400 transition">Designer Lookbook</a>
+                    <a href="#services" class="text-gray-200 hover:text-gold-400 transition">Services</a>
+                    <a href="#catalogue" class="text-gray-200 hover:text-gold-400 transition">Rate Card</a>
+                    <a href="#location" class="text-gray-200 hover:text-gold-400 transition">Location</a>
+                    <a href="#reviews" class="text-gray-200 hover:text-gold-400 transition">Reviews (4.9★)</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openModal('consultModal')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-burgundy-950 font-bold px-4 py-2 rounded text-xs uppercase tracking-wider transition shadow-md">
+                        Book Trial
+                    </button>
+                    <a href="https://wa.me/919399104020" target="_blank" class="w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-base transition" title="WhatsApp Chat">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <div class="flex lg:hidden">
+                    <button onclick="toggleMenu()" class="text-gold-400 p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden lg:hidden bg-burgundy-950 border-b border-gold-500/30 px-6 py-4 space-y-3 text-xs uppercase font-semibold">
+            <a href="#home" onclick="toggleMenu()" class="block text-gold-300 py-1 border-b border-burgundy-900">Home</a>
+            <a href="#lookbook" onclick="toggleMenu()" class="block text-gray-200 py-1 border-b border-burgundy-900">Designer Lookbook</a>
+            <a href="#services" onclick="toggleMenu()" class="block text-gray-200 py-1 border-b border-burgundy-900">Services</a>
+            <a href="#catalogue" onclick="toggleMenu()" class="block text-gray-200 py-1 border-b border-burgundy-900">Rate List PDF</a>
+            <a href="#location" onclick="toggleMenu()" class="block text-gray-200 py-1 border-b border-burgundy-900">Location</a>
+            <a href="#reviews" onclick="toggleMenu()" class="block text-gray-200 py-1 border-b border-burgundy-900">Reviews (4.9★)</a>
+            <button onclick="toggleMenu(); openModal('consultModal')" class="w-full bg-gold-500 text-burgundy-950 font-bold py-2 rounded text-center mt-2">
+                Book Fitting Session
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-burgundy-950 text-white py-16 lg:py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-burgundy-950 via-burgundy-950/90 to-transparent z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-3.5 py-1">
+                        <i class="fa-solid fa-crown text-gold-400 text-xs"></i>
+                        <span class="text-gold-300 text-[11px] uppercase font-medium tracking-widest">Bespoke Couture • Sapna Sangeeta, Indore</span>
+                    </div>
+
+                    <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                        Timeless Elegance, <br>
+                        <span class="gold-gradient-text italic font-normal">Handcrafted Couture</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-sm sm:text-base max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        Welcome to <strong class="text-gold-400">Smahee - The Designer Studio</strong> located at Sapna Sangeeta Road, Tower Square, Indore. Experience bespoke fitting, hand-crafted bridal wear, and signature designer outfits tailored to perfection.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs pt-1">
+                        <div class="flex items-center space-x-1.5">
+                            <span class="text-gold-400 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                            <span class="font-bold text-white">4.9 / 5.0</span>
+                            <span class="text-gray-400">(119+ Google Reviews)</span>
+                        </div>
+                        <span class="text-gold-500/50 hidden sm:inline">•</span>
+                        <span class="text-gold-300 flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Sapna Sangeeta Rd, Indore</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-3">
+                        <a href="#lookbook" class="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-400 text-burgundy-950 font-bold px-7 py-3 rounded text-xs uppercase tracking-wider transition">
+                            Explore Designer Lookbook
+                        </a>
+                        <button onclick="openModal('consultModal')" class="w-full sm:w-auto border border-gold-500/70 hover:bg-gold-500/10 text-gold-300 font-semibold px-7 py-3 rounded text-xs uppercase tracking-wider transition">
+                            Book Fitting Session
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative max-w-md mx-auto">
+                        <div class="rounded-xl overflow-hidden border border-gold-500/40 shadow-2xl bg-burgundy-900 group cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132746.png')">
+                            <img src="Screenshot 2026-10-08 132746.png" 
+                                 onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Store+Front'"
+                                 alt="Smahee Designer Studio Exterior" 
+                                 loading="eager"
+                                 class="w-full h-[450px] object-cover transition transform duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-xs text-gold-300 font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-expand text-xs"></i> Tap to view store entrance
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook & Collection Section (Photos Only, No Captions or Text) -->
+    <section id="lookbook" class="py-16 bg-cream border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-gold-600 uppercase font-semibold text-xs tracking-widest block mb-1">Authentic Studio Collection</span>
+                <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-burgundy-950">Designer Lookbook</h2>
+                <div class="w-12 h-0.5 bg-gold-500 mx-auto mt-2 mb-3"></div>
+            </div>
+
+            <!-- Clean Masonry Photo Grid with No Text, Titles, or Badges -->
+            <div class="masonry-grid">
+                
+                <!-- Photo 1: Main Store Display / Mannequins -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132746.png')">
+                        <img src="Screenshot 2026-10-08 132746.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+1'" 
+                             alt="Smahee Studio Photo 1" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2: Studio Interior & Bridal Racks -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132931.png')">
+                        <img src="Screenshot 2026-10-08 132931.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+2'" 
+                             alt="Smahee Studio Photo 2" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3: Custom Couture Focus & Mustard Yellow Outfit -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132813.png')">
+                        <img src="Screenshot 2026-10-08 132813.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+3'" 
+                             alt="Smahee Studio Photo 3" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4: Modern Boutique Lounge & Mirror Pillar -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132904.png')">
+                        <img src="Screenshot 2026-10-08 132904.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+4'" 
+                             alt="Smahee Studio Photo 4" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5: Partywear Gown Section -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 2026-10-08 132516.png')">
+                        <img src="Screenshot 2026-10-08 132516.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+5'" 
+                             alt="Smahee Studio Photo 5" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6: Ethnic Apparel & Display Table Section -->
+                <div class="masonry-item">
+                    <div class="relative group rounded-xl overflow-hidden border border-gold-500/30 shadow-md bg-burgundy-950 cursor-pointer" onclick="openLightbox('Screenshot 112026-10-08 133346.png')">
+                        <img src="Screenshot 112026-10-08 133346.png" 
+                             onerror="this.src='https://placehold.co/800x1000/3D0A1B/D4AF37?text=Smahee+Studio+6'" 
+                             alt="Smahee Studio Photo 6" 
+                             loading="lazy" 
+                             class="w-full h-auto object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-burgundy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-gold-500/90 text-burgundy-950 flex items-center justify-center text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-8">
+                <button onclick="openModal('consultModal')" class="inline-flex items-center gap-2 bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition border border-gold-500/40 shadow-md">
+                    <i class="fa-solid fa-calendar-check"></i> Book an In-Studio Fitting Trial
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-600 uppercase font-semibold text-xs tracking-widest block mb-1">Tailored Craftsmanship</span>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-burgundy-950">Studio Services</h2>
+                <div class="w-12 h-0.5 bg-gold-500 mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white p-6 rounded-xl border border-gold-500/20 shadow-sm">
+                    <i class="fa-solid fa-scissors text-2xl text-gold-600 mb-3 block"></i>
+                    <h3 class="font-cinzel text-base font-bold text-burgundy-950 mb-1">Custom Tailoring</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Precision custom fittings and tailored alterations for all designer wear.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-gold-500/20 shadow-sm">
+                    <i class="fa-solid fa-gem text-2xl text-gold-600 mb-3 block"></i>
+                    <h3 class="font-cinzel text-base font-bold text-burgundy-950 mb-1">Bridal Styling</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">End-to-end wedding wardrobe customization and fabric selection.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-gold-500/20 shadow-sm">
+                    <i class="fa-solid fa-comments text-2xl text-gold-600 mb-3 block"></i>
+                    <h3 class="font-cinzel text-base font-bold text-burgundy-950 mb-1">In-Person Consultation</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Direct consultation at Sapna Sangeeta Studio for customized outfit concepts.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-gold-500/20 shadow-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-gold-600 mb-3 block"></i>
+                    <h3 class="font-cinzel text-base font-bold text-burgundy-950 mb-1">Express Fitting Trials</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Dedicated trial rooms with priority completion for upcoming functions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rate Card PDF Section -->
+    <section id="catalogue" class="py-16 bg-burgundy-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 space-y-4">
+                    <span class="text-gold-400 uppercase font-semibold text-xs tracking-widest block">Stitching & Customization Rates</span>
+                    <h2 class="font-cinzel text-2xl sm:text-4xl font-bold">Studio Rate Card & Services PDF</h2>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                        View our complete rate list for custom tailoring, designer embroidery, and bespoke bridal fittings.
+                    </p>
+
+                    <div class="space-y-2 text-xs pt-1">
+                        <div class="flex justify-between p-3 bg-burgundy-900/60 rounded border border-gold-500/20">
+                            <span>Bridal Lehenga Tailoring & Can-Can Work</span>
+                            <span class="font-bold text-gold-400">Starting ₹6,500</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-burgundy-900/60 rounded border border-gold-500/20">
+                            <span>Padded Designer Blouse (Hand Embroidery)</span>
+                            <span class="font-bold text-gold-400">Starting ₹2,200</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-burgundy-900/60 rounded border border-gold-500/20">
+                            <span>Custom Indo-Western Pre-Stitched Gown</span>
+                            <span class="font-bold text-gold-400">Starting ₹3,800</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 pt-3">
+                        <button onclick="openModal('pdfViewerModal')" class="bg-gold-500 hover:bg-gold-400 text-burgundy-950 font-bold px-5 py-2.5 rounded text-xs uppercase tracking-wider transition flex items-center gap-2">
+                            <i class="fa-solid fa-eye"></i> View Full Rate Card
+                        </button>
+                        <button onclick="downloadMockPDF()" class="border border-gold-500 text-gold-300 hover:bg-gold-500/10 font-semibold px-5 py-2.5 rounded text-xs uppercase tracking-wider transition flex items-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-white text-gray-900 rounded-xl p-6 shadow-2xl border border-gold-500/40">
+                        <div class="flex justify-between items-center border-b pb-3 mb-3 border-gray-200">
+                            <h4 class="font-cinzel font-bold text-sm text-burgundy-950">SMAHEE STUDIO - OFFICIAL RATE CARD</h4>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">Updated 2025</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-4">Sapna Sangeeta Rd, Indore • Direct Phone: +91 93991 04020</p>
+                        <button onclick="openModal('pdfViewerModal')" class="w-full bg-burgundy-950 hover:bg-burgundy-900 text-gold-300 py-2.5 rounded font-bold text-xs uppercase tracking-wider transition">
+                            Open Interactive PDF Document
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Opening Hours Section -->
+    <section id="location" class="py-16 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-gold-600 uppercase font-semibold text-xs tracking-widest block mb-1">Visit Our Store</span>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-burgundy-950">Studio Location & Hours</h2>
+                <div class="w-12 h-0.5 bg-gold-500 mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <div class="lg:col-span-5 bg-white rounded-xl p-6 border border-gold-500/30 shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-0.5 rounded-full">Open Today</span>
+                            <span class="text-xs font-bold text-gold-600 bg-gold-100 px-2.5 py-0.5 rounded-full">Tower Square</span>
+                        </div>
+
+                        <h3 class="font-cinzel text-xl font-bold text-burgundy-950 mb-2">Smahee - The Designer Studio</h3>
+                        <p class="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">
+                            <i class="fa-solid fa-location-dot text-gold-600 mr-1.5"></i>
+                            Sapna Sangeeta Rd, Behind Agrawal Sweets / Gujrat Sweets, Near Matlani Garden, Tower Square, Scheme No 31, Indore, MP 452001
+                        </p>
+
+                        <div class="border-t border-b border-gray-100 py-3 my-3 space-y-1.5 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Monday – Saturday:</span>
+                                <span class="text-burgundy-950 font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Sunday:</span>
+                                <span class="text-burgundy-950 font-bold">12:30 PM – 8:00 PM</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs font-bold text-burgundy-950 my-2">
+                            <i class="fa-solid fa-phone text-gold-600 mr-1.5"></i> +91 93991 04020
+                        </p>
+                    </div>
+
+                    <div class="pt-3 flex gap-2">
+                        <a href="https://maps.app.goo.gl/HbmVsnQnfVZPfUBZ8" target="_blank" class="flex-1 bg-burgundy-900 hover:bg-burgundy-800 text-gold-300 font-bold py-2.5 rounded text-center text-xs uppercase transition">
+                            <i class="fa-solid fa-map-location-dot"></i> Get Directions
+                        </a>
+                        <a href="tel:+919399104020" class="bg-gold-500 hover:bg-gold-400 text-burgundy-950 font-bold px-4 py-2.5 rounded transition">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-gray-200 rounded-xl overflow-hidden border border-gold-500/30 min-h-[350px]">
+                    <iframe 
+                        title="Smahee Studio Location Map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.523429381739!2d75.867!3d22.709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd004d3e8e2b%3A0x8673a5a7d6ab6201!2sSapna%20Sangeeta%20Rd%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        class="w-full h-full min-h-[350px] border-0" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <div class="text-gold-500 text-xl mb-1">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-burgundy-950">Verified Google Reviews</h2>
+                <p class="text-gray-600 text-xs mt-1">Rated 4.9 Stars based on 119+ real customer reviews on Google Maps.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                <div class="bg-white p-5 rounded-xl border border-gold-500/20 shadow-sm">
+                    <p class="text-gray-700 italic leading-relaxed mb-4">"Best designer studio for bridal outfits in Indore! Smahee customized my wedding lehenga with precise fitting on trial."</p>
+                    <span class="font-bold text-burgundy-950 block">Pooja Sharma</span>
+                    <span class="text-[10px] text-gray-500">Google Verified Client</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-gold-500/20 shadow-sm">
+                    <p class="text-gray-700 italic leading-relaxed mb-4">"Amazing studio collection near Sapna Sangeeta Tower Square. Polite staff and very fast delivery for custom festive suits!"</p>
+                    <span class="font-bold text-burgundy-950 block">Riya Agrawal</span>
+                    <span class="text-[10px] text-gray-500">Google Verified Client</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-gold-500/20 shadow-sm">
+                    <p class="text-gray-700 italic leading-relaxed mb-4">"Got my cocktail gown pre-stitched here. The drape set looked extremely high-end and fitting was perfect on first attempt."</p>
+                    <span class="font-bold text-burgundy-950 block">Sneha Verma</span>
+                    <span class="text-[10px] text-gray-500">Google Verified Client</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy-950 text-gray-400 border-t border-gold-500/20 py-8 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="font-cinzel font-bold text-white text-base">SMAHEE STUDIO</span>
+                <p class="text-[11px] text-gray-400">Sapna Sangeeta Rd, Tower Square, Indore • Call: +91 93991 04020</p>
+            </div>
+            <p class="text-[10px] text-gray-500">© 2025 Smahee - The Designer Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/919399104020?text=Hi%20Smahee%20Studio,%20I%20am%20inquiring%20about%20a%20designer%20outfit!" target="_blank" class="fixed bottom-5 right-5 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-xl transition transform hover:scale-110" title="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightboxModal" class="modal fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+        <button onclick="closeModal('lightboxModal')" class="absolute top-4 right-4 text-white text-2xl hover:text-gold-400 z-50 p-2">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[90vh] overflow-hidden rounded-lg">
+            <img id="lightboxImage" src="" alt="Full view" class="w-full h-full object-contain max-h-[85vh]">
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfViewerModal" class="modal fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-burgundy-950 border border-gold-500/40 text-white rounded-xl max-w-2xl w-full p-5 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-gold-500/30 pb-3 mb-3">
+                <h3 class="font-cinzel font-bold text-sm gold-gradient-text">Smahee_Studio_Rate_List_2025.pdf</h3>
+                <button onclick="closeModal('pdfViewerModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="bg-white text-gray-900 rounded p-4 h-72 overflow-y-auto space-y-3 text-xs">
+                <div class="text-center border-b pb-2">
+                    <h4 class="font-cinzel font-bold text-lg text-burgundy-950">SMAHEE - THE DESIGNER STUDIO</h4>
+                    <p class="text-[10px] text-gray-500">Sapna Sangeeta Rd, Indore • +91 93991 04020</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between font-bold text-burgundy-900 border-b pb-1">
+                        <span>Service / Outfit Type</span><span>Starting Price</span>
+                    </div>
+                    <div class="flex justify-between"><span>Padded Designer Blouse</span><span>₹2,200</span></div>
+                    <div class="flex justify-between"><span>Bridal Lehenga Tailoring</span><span>₹6,500</span></div>
+                    <div class="flex justify-between"><span>Anarkali Suit Stitching</span><span>₹1,800</span></div>
+                    <div class="flex justify-between"><span>Readymade Bridal Outfits</span><span>₹38,000</span></div>
+                    <div class="flex justify-between"><span>Indo-Western Pre-Stitched Sets</span><span>₹16,000</span></div>
+                </div>
+            </div>
+            <div class="mt-3 flex justify-end">
+                <button onclick="downloadMockPDF()" class="bg-gold-500 text-burgundy-950 px-4 py-1.5 rounded text-xs font-bold uppercase">Download PDF File</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="consultModal" class="modal fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-white text-gray-900 rounded-xl max-w-md w-full p-5 shadow-2xl relative">
+            <button onclick="closeModal('consultModal')" class="absolute top-3 right-3 text-gray-400 hover:text-gray-800"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="font-cinzel text-lg font-bold text-burgundy-950 mb-1">Book Fitting Session</h3>
+            <p class="text-gray-600 text-xs mb-3">Schedule your fitting or design trial at Sapna Sangeeta Studio.</p>
+            <form onsubmit="handleConsult(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Full Name</label>
+                    <input type="text" required class="w-full px-3 py-1.5 rounded border border-gray-300">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Mobile / WhatsApp Number</label>
+                    <input type="tel" required class="w-full px-3 py-1.5 rounded border border-gray-300">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Select Service</label>
+                    <select class="w-full px-3 py-1.5 rounded border border-gray-300">
+                        <option>Bridal Outfit Trial</option>
+                        <option>Custom Stitching / Fitting</option>
+                        <option>Indo-Western Drape Consult</option>
+                        <option>Suit / Anarkali Customization</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-burgundy-950 text-gold-300 font-bold py-2 rounded text-xs uppercase tracking-wider">Confirm Booking Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script handlers -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function openLightbox(imageSrc) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            openModal('lightboxModal');
+        }
+
+        function handleConsult(e) {
+            e.preventDefault();
+            alert('Fitting trial request submitted! Smahee Studio team will connect with you via WhatsApp.');
+            closeModal('consultModal');
+        }
+
+        function downloadMockPDF() {
+            const content = `SMAHEE THE DESIGNER STUDIO - RATE LIST\nSapna Sangeeta Rd, Indore\nPhone: +91 93991 04020\n\n1. Designer Blouse: ₹2,200+\n2. Bridal Lehenga Tailoring: ₹6,500+\n3. Anarkali Stitching: ₹1,800+`;
+            const blob = new Blob([content], {type: 'text/plain'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "Smahee_Studio_Rate_List.txt";
+            link.click();
+        }
+    </script>
+</body>
+</html>
